@@ -1,0 +1,74 @@
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f2f5;
+}
+/* header and footer styling */
+.nav h1 , .foot p{
+    text-align: center;
+    margin-bottom: 8px;
+    color: rgb(49, 49, 167);
+}
+
+
+/* resume div styling */
+.resume {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* h1 and h2 tags styling */
+h1 ,h2 {
+    color: #333;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #ccc;
+    font-size: 24px;
+}
+
+
+/* image styling */
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: block;
+    margin: 20px auto;
+}
+
+/* ul items hide when page renders */
+.skills ul, .certification ul{
+    display: none;
+}
+ ul {
+    padding-left: 20px;
+ }
+ li {
+    margin-bottom: 8px;
+ }
+
+ /* button styling */
+ button {
+    display: inline-block;
+    padding: 10px 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: background-color 0.03s ease;  
+ }
+
+ /* hover effects on button */
+ button:hover {
+    background-color: #0056b3;
+ }
