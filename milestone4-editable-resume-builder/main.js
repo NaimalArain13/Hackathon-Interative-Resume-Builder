@@ -1,5 +1,5 @@
 "use strict";
-var _a, _b;
+var _a, _b, _c;
 // Milestone part 3
 // Add More Skills Logic
 (_a = document.getElementById("add-skill")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
@@ -152,6 +152,7 @@ function validateFormFields() {
     return isValid;
 }
 ;
+// Initialize resumeData with default values
 let resumeData = {
     name: "",
     email: "",
@@ -165,22 +166,34 @@ let resumeData = {
     endDate: "",
     skills: [],
 };
+// Function to save changes made to resume data
 function saveChanges(fieldId, value) {
     console.log(`Field edited: ${fieldId}, New Value: ${value}`);
+    // Check if the field is an array (skills in this case)
     if (Array.isArray(resumeData[fieldId])) {
-        resumeData[fieldId].push(value);
+        resumeData[fieldId].push(value); // Add new skill to the array
     }
     else {
-        resumeData[fieldId] = value;
+        resumeData[fieldId] = value; // Update other fields with the new value
     }
     console.log("Updated resume data:", resumeData);
 }
-//detect changes
+// Add an event listener for DOMContentLoaded to ensure elements are available
 document.addEventListener("DOMContentLoaded", () => {
+    // Capture all elements with contenteditable attribute set to true
     document.querySelectorAll("[contenteditable=true]").forEach((element) => {
+        // Add an input event listener to each of these elements
         element.addEventListener("input", (event) => {
             const target = event.target;
+            // Call saveChanges with the id of the element and its new innerText
             saveChanges(target.id, target.innerText);
         });
     });
+});
+function printResume() {
+    window.print();
+}
+// Add event listener for "Download Resume" button
+(_c = document.querySelector(".download-btn")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
+    printResume();
 });

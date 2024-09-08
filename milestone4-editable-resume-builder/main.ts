@@ -222,3 +222,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+function printResume(){
+  window.print()
+}
+// Add event listener for "Download Resume" button
+document.querySelector(".download-btn")?.addEventListener("click", () => {
+  printResume();
+});
