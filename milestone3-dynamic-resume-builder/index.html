@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic AND Interactive Resume Builder</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="head"><h1>Dynamic Resume Builder-Milestone-03</h1></header>
+    
+    <!-- form fields -->
+    <form id="resume-form">
+        <!-- personal information section-->
+      <section id="personal-info">
+        <h3>Personal Information</h3>
+        <label>Name:</label>
+        <input type="text" id="name" placeholder="Name" required>
+        <label>Email:</label>
+        <input type="email" id="email" placeholder="Email" required>
+        <label>Phone:</label>
+        <input type="number" id="phone" placeholder="Phone" required>
+        <label>Profile Picture:</label>
+        <input type="file" id="profile-pic" accept="image/*" height="48" width="48"/>
+      </section>
+
+       <!-- Education section -->
+      <section id="education">
+        <h3>Education</h3>
+        <label>Degree:</label>
+        <input type="text" id="degree" placeholder="Degree" required>
+        <label>Institution:</label>
+        <input type="text" id="institution" placeholder="Institution" required>
+        <label>Graduation Date:</label>
+        <input type="date" id="graduation-date" placeholder="Graduation Date" required>
+      </section>
+
+      <!-- Work Experience Section -->
+      <section id="work-experience">
+        <h3>Work Experience</h3>
+        <label>Job Title:</label>
+        <input type="text" id="job-title" placeholder="Job Title" required>
+        <label>Company:</label>
+        <input type="text" id="company" placeholder="Company" required>
+        <label>Start Date:</label>
+        <input type="date" id="start-date" required>
+        <label>End Date:</label>
+        <input type="date" id="end-date" required>      
+      </section>
+
+      
+     <!-- Skills Section -->
+    <section id="skills">
+       <h3>Skills</h3>
+         <div id="skills-container">
+        <label>Skills</label>
+          <input type="text" id="skill" placeholder="Skill" required>
+         </div>
+        <button type="button" id="add-skill" class="btn2">Add More Skills</button>
+      </section> 
+
+      <!-- submit button -->
+      <button type="submit" class="btn1">Generate Resume</button>
+    </form>
+
+
+<!-- Generated Resume -->
+<div id="display-resume" class="resume">
+  <h2>Generated Resume</h2>
+  
+  <!-- Personal Information Section -->
+  <div class="resume-section">
+      <h3>Personal Information</h3>
+      <img id="display-profile-pic" class="profile-image" alt="Profile Picture">
+      <p><strong>Name:</strong> <span id="display-name"></span></p>
+      <p><strong>Email:</strong> <span id="display-email"></span></p>
+      <p><strong>Phone:</strong> <span id="display-phone"></span></p>
+  </div>
+
+  <!-- Education Section -->
+  <div class="resume-section">
+      <h3>Education</h3>
+      <p><strong>Degree:</strong> <span id="display-degree"></span></p>
+      <p><strong>Institution:</strong> <span id="display-institution"></span></p>
+      <p><strong>Graduation Date:</strong> <span id="display-graduation-date"></span></p>
+  </div>
+
+  <!-- Work Experience Section -->
+  <div class="resume-section">
+      <h3>Work Experience</h3>
+      <p><strong>Job Title:</strong> <span id="display-job-title"></span></p>
+      <p><strong>Company:</strong> <span id="display-company"></span></p>
+      <p><strong>Start Date:</strong> <span id="display-start-date"></span></p>
+      <p><strong>End Date:</strong> <span id="display-end-date"></span></p>
+  </div>
+
+  <!-- Skills Section -->
+  <div class="resume-section">
+      <h3>Skills</h3>
+      <ul id="display-skill-list"></ul>
+  </div>
+
+  <button class="download-btn">Download Resume</button>
+</div>
+
+<!-- Footer section -->
+<footer class="foot"><p>Created by GIAIC student: Naimal Salahuddin</p></footer>
+    <script src="./main.js"></script>
+  </body>
+</html>

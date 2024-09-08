@@ -1,0 +1,190 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e0f7fa; /* Light turquoise background */
+  margin: 0;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+/* Header Styles */
+header.head {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Form Styles */
+form {
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+form h3 {
+  border-bottom: 2px solid #4caf50;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  color: #4caf50;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+input[type="file"] {
+  padding: 5px; /* Adjust file input padding */
+}
+
+button.btn1 {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  display: block;
+  width: 100%;
+  font-size: 16px;
+}
+
+button.btn2 {
+  background-color: #ffeb3b;
+  color: black;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+button.btn2:hover {
+  background-color: #ffc107;
+}
+
+/* Resume Display Styles */
+#display-resume {
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  border: 2px solid #4caf50;
+}
+
+/* Added styling for the resume heading */
+#display-resume h2 {
+  border-bottom: 3px solid #4caf50;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #4caf50;
+  text-align: center; /* Center align the heading */
+}
+
+/* Added styling for resume sections */
+.resume-section {
+  margin-bottom: 20px;
+}
+
+.resume-section h3 {
+  font-size: 18px;
+  color: #4caf50;
+  border-bottom: 2px solid #4caf50;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
+
+/* Added styling for resume section paragraphs */
+.resume-section p {
+  margin: 8px 0;
+  line-height: 1.5; /* Increased line-height for better readability */
+}
+
+.profile-image {
+  display: block;
+  margin: 0 auto 15px auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #4caf50;
+  object-fit: cover; /* Ensure the image fits within the border */
+}
+
+/* Added styling for unordered lists */
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+ul li {
+  margin-bottom: 5px;
+}
+
+/* Added styling for download button */
+.download-btn {
+  background-color: #2196f3;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  text-align: center; /* Center text in the button */
+}
+
+.download-btn:hover {
+  background-color: #1976d2;
+}
+
+/* Footer Styles */
+footer.foot {
+  text-align: center;
+  margin-top: 30px;
+  color: #777;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  form {
+    padding: 20px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  input[type="date"],
+  input[type="file"] {
+    padding: 10px;
+  }
+
+  button.btn1,
+  button.btn2 {
+    padding: 10px 15px;
+  }
+
+  #display-resume {
+    padding: 20px;
+  }
+
+  .profile-image {
+    width: 100px;
+    height: 100px;
+  }
+}
