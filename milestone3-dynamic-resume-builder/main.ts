@@ -163,3 +163,11 @@ function validateFormFields(): boolean {
   //otherwise return ture and generate form
   return isValid;
 };
+
+
+function printResume(){
+  window.print()
+}
+document.querySelector(".download-btn")?.addEventListener("click" , ()=>{
+  printResume()
+})

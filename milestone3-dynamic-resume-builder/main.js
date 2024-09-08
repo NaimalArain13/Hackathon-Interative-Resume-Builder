@@ -1,5 +1,5 @@
 "use strict";
-var _a, _b;
+var _a, _b, _c;
 // Add More Skills Logic
 (_a = document.getElementById("add-skill")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
     var _a;
@@ -75,6 +75,7 @@ var _a, _b;
 function validateFormFields() {
     let isValid = true;
     let errorMessage = "";
+    //capture Input Fields
     const userName = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const phone = document.getElementById("phone").value;
@@ -85,55 +86,74 @@ function validateFormFields() {
     const company = document.getElementById("company").value;
     const startDate = document.getElementById("start-date").value;
     const endDate = document.getElementById("end-date").value;
+    //validate user
     if (!userName) {
         isValid = false;
         errorMessage += "Name is required.\n";
     }
+    //validate user email
     if (!email || !/\S+@\S+\.\S+/.test(email)) {
         isValid = false;
         errorMessage += "Valid email is required.\n";
     }
+    //validate user phone number
     const phonePattern = /^\d{10,15}$/;
     if (!phonePattern.test(phone)) {
         isValid = false;
         errorMessage += "Valid phone number is required.\n";
     }
+    //validate user degree
     if (!degree) {
         isValid = false;
         errorMessage += "Degree is required.\n";
     }
+    //validate institution
     if (!institution) {
         isValid = false;
         errorMessage += "Institution is required.\n";
     }
+    //validate date
     if (!graduationDate) {
         isValid = false;
         errorMessage += "Graduation year is required.\n";
     }
+    //validate job title
     if (!jobTitle) {
         isValid = false;
         errorMessage += "Job Title is required.\n";
     }
+    //validate company
     if (!company) {
         isValid = false;
         errorMessage += "Company is required.\n";
     }
+    //validate start date
     if (!startDate) {
         isValid = false;
         errorMessage += "Start date is required.\n";
     }
+    //validate end date
     if (!endDate) {
         isValid = false;
         errorMessage += "End date is required.\n";
     }
+    //validate skills 
     const skillInputs = document.querySelectorAll("#skills-container input");
     if (skillInputs.length === 0 || !skillInputs[0].value.trim()) {
         isValid = false;
         errorMessage += "At least one skill is required.\n";
     }
+    //check if there is error show alert
     if (errorMessage) {
         alert(errorMessage);
     }
+    //otherwise return ture and generate form
     return isValid;
 }
 ;
+function printResume() {
+    window.print();
+}
+(_c = document.querySelector(".download-btn")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
+    printResume();
+});

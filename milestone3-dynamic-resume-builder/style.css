@@ -188,3 +188,29 @@ footer.foot {
     height: 100px;
   }
 }
+
+/* Print Styles */
+@media print {
+  body {
+    background-color: white; /* Ensure white background for print */
+    margin: 0;
+    padding: 0;
+  }
+
+  form, #display-resume {
+    display: none; /* Hide the form and any other elements not needed in the print */
+  }
+
+  header.head, footer.foot, #display-resume {
+    display: block; /* Ensure header and footer are visible in print */
+  }
+  
+  #display-resume {
+    border: none; /* Remove border from resume in print */
+    box-shadow: none; /* Remove shadow from resume in print */
+  }
+  
+  #download-btn {
+    display: none; /* Hide the download button in print */
+  }
+}
