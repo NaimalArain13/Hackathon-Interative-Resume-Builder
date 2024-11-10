@@ -1,106 +1,120 @@
 "use strict";
 // Milestone part 3
-var _a, _b, _c;
-//Add milestone 5 functionality
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
 // Function to generate a unique identifier
-function generateUniqueId() {
-    return 'resume-' + new Date().getTime(); // Unique based on timestamp
-}
-// Function to save resume data to local storage
-function saveResumeData(uniqueId, resumeData) {
-    localStorage.setItem(uniqueId, JSON.stringify(resumeData));
-}
-// Function to generate a shareable URL
-function generateShareableURL(uniqueId) {
-    const baseUrl = window.location.origin; // Base URL of the site
-    return `${baseUrl}/resume.html?resumeId=${uniqueId}`; // Example URL: username.vercel.app/resume.html?resumeId=resume-123456789
-}
-function createResume() {
-    const uniqueId = generateUniqueId();
-    const nameElement = document.getElementById('name');
-    const emailElement = document.getElementById('email');
-    const phoneElement = document.getElementById('phone');
-    const degreeElement = document.getElementById('degree');
-    const institutionElement = document.getElementById('institution');
-    const graduationDateElement = document.getElementById('graduation-date');
-    const jobTitleElement = document.getElementById('job-title');
-    const companyElement = document.getElementById('company');
-    const startDateElement = document.getElementById('start-date');
-    const endDateElement = document.getElementById('end-date');
-    if (!nameElement || !emailElement || !phoneElement || !degreeElement || !institutionElement ||
-        !graduationDateElement || !jobTitleElement || !companyElement || !startDateElement || !endDateElement) {
-        alert("Please make sure all form fields are filled out correctly.");
-        return;
-    }
-    const resumeData = {
-        name: nameElement.value,
-        email: emailElement.value,
-        phone: phoneElement.value,
-        degree: degreeElement.value,
-        institution: institutionElement.value,
-        graduationYear: graduationDateElement.value,
-        jobTitle: jobTitleElement.value,
-        company: companyElement.value,
-        startDate: startDateElement.value,
-        endDate: endDateElement.value,
-        skills: Array.from(document.querySelectorAll('#skills-container input')).map(input => input.value),
-    };
-    saveResumeData(uniqueId, resumeData);
-    const shareableUrl = generateShareableURL(uniqueId);
-    alert(`Your resume URL: ${shareableUrl}`);
-}
-document.addEventListener('DOMContentLoaded', () => {
-    var _a;
-    const urlParams = new URLSearchParams(window.location.search);
-    const uniqueId = urlParams.get('resumeId');
-    if (uniqueId && uniqueId.startsWith('resume-')) {
-        const resumeData = JSON.parse(localStorage.getItem(uniqueId) || '{}');
-        if (resumeData) {
-            const displayName = document.getElementById('display-name');
-            const displayEmail = document.getElementById('display-email');
-            const displayPhone = document.getElementById('display-phone');
-            const displayDegree = document.getElementById('display-degree');
-            const displayInstitution = document.getElementById('display-institution');
-            const displayGraduationDate = document.getElementById('display-graduation-date');
-            const displayJobTitle = document.getElementById('display-job-title');
-            const displayCompany = document.getElementById('display-company');
-            const displayStartDate = document.getElementById('display-start-date');
-            const displayEndDate = document.getElementById('display-end-date');
-            const displaySkills = document.getElementById('display-skill-list');
-            if (displayName)
-                displayName.innerText = resumeData.name || '';
-            if (displayEmail)
-                displayEmail.innerText = resumeData.email || '';
-            if (displayPhone)
-                displayPhone.innerText = resumeData.phone || '';
-            if (displayDegree)
-                displayDegree.innerText = resumeData.degree || '';
-            if (displayInstitution)
-                displayInstitution.innerText = resumeData.institution || '';
-            if (displayGraduationDate)
-                displayGraduationDate.innerText = resumeData.graduationYear || '';
-            if (displayJobTitle)
-                displayJobTitle.innerText = resumeData.jobTitle || '';
-            if (displayCompany)
-                displayCompany.innerText = resumeData.company || '';
-            if (displayStartDate)
-                displayStartDate.innerText = resumeData.startDate || '';
-            if (displayEndDate)
-                displayEndDate.innerText = resumeData.endDate || '';
-            if (displaySkills) {
-                displaySkills.innerHTML = '';
-                (_a = resumeData.skills) === null || _a === void 0 ? void 0 : _a.forEach((skill) => {
-                    const skillItem = document.createElement('li');
-                    skillItem.textContent = skill;
-                    displaySkills.appendChild(skillItem);
-                });
-            }
-        }
-        else {
-            console.error('Resume data not found.');
-        }
-    }
-});
+// // Function to save content to localStorage
+// function saveContent() {
+//   const editableElements = document.querySelectorAll('[contenteditable="true"]');
+//   editableElements.forEach(el => {
+//       localStorage.setItem(el.id, el.innerHTML);
+//   });
+// }
+// // Restore content from localStorage
+// function restoreContent() {
+//   const editableElements = document.querySelectorAll('[contenteditable="true"]');
+//   editableElements.forEach(el => {
+//       const savedContent = localStorage.getItem(el.id);
+//       if (savedContent) {
+//           el.innerHTML = savedContent;
+//       }
+//   });
+// }
+// // Event listener for the Save button
+// document.getElementById('saveBtn')?.addEventListener('click', saveContent);
+// // Call restoreContent on page load to initialize content
+// document.addEventListener('DOMContentLoaded', restoreContent);
+// document.addEventListener('DOMContentLoaded', () => {
+//   // Select the theme switcher button
+//   const themeSwitcher = document.getElementById('themeSwitcher') as HTMLButtonElement;
+//   // Check if the button exists
+//   if (themeSwitcher) {
+//       // Add an event listener to toggle the theme
+//       themeSwitcher.addEventListener('click', () => {
+//           // Toggle the 'theme-dark' class on the body
+//           document.body.classList.toggle('theme-dark');
+//       });
+//   }
+// });
+// document.addEventListener('DOMContentLoaded', () => {
+//   const editableElements = document.querySelectorAll('[contenteditable="true"]');
+//   editableElements.forEach(element => {
+//       element.addEventListener('focusout', () => {
+//           const links = element.querySelectorAll('a');
+//           links.forEach(link => {
+//               // Ensure the href attribute is updated with the new value after editing
+//               link.setAttribute('href', link.textContent?.trim() || '');
+//           });
+//       });
+//       element.addEventListener('click', (event) => {
+//           const target = event.target as HTMLElement;
+//           if (target.tagName === 'A') {
+//               event.preventDefault();
+//               // Get the href attribute and navigate to that URL
+//               const url = target.getAttribute('href');
+//               if (url) {
+//                   window.open(url, '_blank');
+//               }
+//           }
+//       });
+//   });
+//   // Event listener for the Download Resume button
+//   document.getElementById('downloadResume')?.addEventListener('click', () => {
+//       window.print(); // Open the print dialog
+//   });
+// });
+// // main.ts
+// document.addEventListener('DOMContentLoaded', () => {
+//   const editableElements = document.querySelectorAll('[contenteditable="true"]');
+//   // Ensuring the href of the links in the editable elements is updated
+//   editableElements.forEach(element => {
+//       element.addEventListener('focusout', () => {
+//           const links = element.querySelectorAll('a');
+//           links.forEach(link => {
+//               link.setAttribute('href', link.textContent?.trim() || '');
+//           });
+//       });
+//       element.addEventListener('click', (event) => {
+//           const target = event.target as HTMLElement;
+//           if (target.tagName === 'A') {
+//               event.preventDefault();
+//               const url = target.getAttribute('href');
+//               if (url) {
+//                   window.open(url, '_blank');
+//               }
+//           }
+//       });
+//   });
+//   // Event listener for the Download Resume button
+//   document.getElementById('downloadResume')?.addEventListener('click', () => {
+//       window.print(); // Open the print dialog
+//   });
+//   document.addEventListener('DOMContentLoaded', () => {
+//     // Generate unique URL based on the name in the editable H1
+//     document.getElementById('generateLink')?.addEventListener('click', () => {
+//         let userName = (document.getElementById('userName') as HTMLElement).textContent?.trim();
+//         if (userName) {
+//             // Create a unique URL based on the user’s name
+//             const resumeUrl = `${window.location.origin}/resume/${encodeURIComponent(userName)}`;
+//             (document.getElementById('resumeLink') as HTMLInputElement).value = resumeUrl;
+//         } else {
+//             alert('Please enter your name');
+//        }
+//     });
+// });
+// // Share Resume button to copy the unique link
+// document.getElementById('shareResume')?.addEventListener('click', () => {
+//     const resumeLink = (document.getElementById('resumeLink') as HTMLInputElement).value;
+//     if (resumeLink) {
+//         navigator.clipboard.writeText(resumeLink).then(() => {
+//             alert('Resume link copied to clipboard');
+//         }, () => {
+//             alert('Failed to copy the link');
+//         });
+//     } else {
+//         alert('Generate the link first');
+//     }
+// });
+// });
 // Add More Skills Logic
 (_a = document.getElementById("add-skill")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
     var _a;
@@ -290,10 +304,53 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+//Add milestone 5 functionality
+// Retrieve the form values
+const userName = (_c = document.getElementById("name")) === null || _c === void 0 ? void 0 : _c.value;
+const email = (_d = document.getElementById("email")) === null || _d === void 0 ? void 0 : _d.value;
+const phone = (_e = document.getElementById("phone")) === null || _e === void 0 ? void 0 : _e.value;
+const profilePic = (_f = document.getElementById("profile-pic")) === null || _f === void 0 ? void 0 : _f.value; // Usually this is a file path
+const degree = (_g = document.getElementById("degree")) === null || _g === void 0 ? void 0 : _g.value;
+const institution = (_h = document.getElementById("institution")) === null || _h === void 0 ? void 0 : _h.value;
+const graduationDate = (_j = document.getElementById("graduation-date")) === null || _j === void 0 ? void 0 : _j.value;
+const jobTitle = (_k = document.getElementById("job-title")) === null || _k === void 0 ? void 0 : _k.value;
+const company = (_l = document.getElementById("company")) === null || _l === void 0 ? void 0 : _l.value;
+const startDate = (_m = document.getElementById("start-date")) === null || _m === void 0 ? void 0 : _m.value;
+const endDate = (_o = document.getElementById("end-date")) === null || _o === void 0 ? void 0 : _o.value;
+// Handling skills - concatenate all skills in a comma-separated format
+const skillsElements = document.querySelectorAll("#skills-container input[type='text']");
+const skills = Array.from(skillsElements).map(skill => skill.value).join(',');
+// Construct the URLSearchParams object
+const queryParams = new URLSearchParams({
+    name: userName,
+    email: email,
+    phone: phone,
+    profilePic: profilePic, // Typically, file paths are not sent as query params, so handle this accordingly.
+    degree: degree,
+    institution: institution,
+    graduationDate: graduationDate,
+    jobTitle: jobTitle,
+    company: company,
+    startDate: startDate,
+    endDate: endDate,
+    skills: skills,
+});
+// Generate the unique URL
+const uniqueUrl = `${window.location.origin}?${queryParams.toString()}`;
+// Set up the click event listener for the share button
+const shareLinkButton = document.getElementById("share-btn");
+if (shareLinkButton) {
+    shareLinkButton.addEventListener("click", () => {
+        window.open(uniqueUrl, "_blank");
+    });
+    // Update the browser history to include the query parameters in the current URL
+    window.history.replaceState(null, '', `?${queryParams.toString()}`);
+}
+//download pdf functionality
 function printResume() {
     window.print();
 }
 // Add event listener for "Download Resume" button
-(_c = document.querySelector(".download-btn")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
+(_p = document.querySelector(".download-btn")) === null || _p === void 0 ? void 0 : _p.addEventListener("click", () => {
     printResume();
 });

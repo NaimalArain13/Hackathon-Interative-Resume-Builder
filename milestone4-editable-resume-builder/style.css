@@ -1,12 +1,20 @@
 /* Global Styles */
 body {
   font-family: Arial, sans-serif;
-  background-color: #e0f7fa; 
-  margin: 0;
+  background-color: white; 
+  margin-left: 60px;
+  margin-right: 60px;
   padding: 20px;
   line-height: 1.6;
 }
 
+/* Centered form with max width */
+.form-container {
+  
+  display: flex;
+  gap: 20px;
+  max-width: 100%;
+}
 /* Header Styles */
 header.head {
   text-align: center;
@@ -22,6 +30,9 @@ form {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 form h3 {
@@ -46,6 +57,10 @@ input[type="file"] {
 input[type="file"] {
   padding: 5px; 
 }
+input:focus {
+  border-color: #4caf50;
+  outline: none;
+}
 
 button.btn1 {
   background-color: #4caf50;
@@ -58,6 +73,11 @@ button.btn1 {
   display: block;
   width: 100%;
   font-size: 16px;
+}
+
+button.btn1:hover {
+  background-color: #2b4681;
+  transform: scale(1.03);
 }
 
 button.btn2 {
@@ -73,15 +93,33 @@ button.btn2 {
 button.btn2:hover {
   background-color: #ffc107;
 }
+button.btn2:hover, .download-btn:hover {
+  transform: scale(1.03);
+}
 
+/* Buttons */
+button.btn1, button.btn2, .download-btn {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
 /* Resume Display Styles */
 #display-resume {
   background-color: white;
-  padding: 25px;
-  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
-  border: 2px solid #4caf50;
+  padding: 15px;
+  border: 1px solid #4caf50;
+  border-radius: 8px;
+}
+/* Resume Grid Layout */
+.resume-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .resume-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Added styling for the resume heading */
@@ -149,17 +187,13 @@ ul li {
 }
 
 .download-btn:hover {
-  background-color: #1976d2;
+  background-color: #2b4681;
 }
 
-/* Footer Styles */
-footer.foot {
-  text-align: center;
-  margin-top: 30px;
-  color: #777;
-  font-size: 14px;
+/* Refined hover color for footer links if any */
+footer.foot a:hover {
+  color: #4caf50;
 }
-
 /* Responsive Design */
 @media (max-width: 768px) {
   form {
@@ -188,6 +222,11 @@ footer.foot {
     height: 100px;
   }
 }
+/* Profile Image */
+.profile-image:hover {
+  box-shadow: 0 0 5px 2px #2b4681;
+}
+
 
 /* Print Styles */
 @media print {
@@ -215,7 +254,8 @@ footer.foot {
   }
 }
 
-/* Editable content */
+/* Editable Fields */
 [contenteditable="true"]:focus {
-  outline: 2px solid #007BFF; /* Blue border on focus */
+  outline: 2px solid #2b4681;
+  transition: outline 0.2s ease;
 }

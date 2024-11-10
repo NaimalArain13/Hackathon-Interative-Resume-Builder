@@ -1,137 +1,141 @@
 // Milestone part 3
 
-//Add milestone 5 functionality
+
+
+
+
+
 // Function to generate a unique identifier
-// Function to save content to localStorage
-function saveContent() {
-  const editableElements = document.querySelectorAll('[contenteditable="true"]');
-  editableElements.forEach(el => {
-      localStorage.setItem(el.id, el.innerHTML);
-  });
-}
+// // Function to save content to localStorage
+// function saveContent() {
+//   const editableElements = document.querySelectorAll('[contenteditable="true"]');
+//   editableElements.forEach(el => {
+//       localStorage.setItem(el.id, el.innerHTML);
+//   });
+// }
 
-// Restore content from localStorage
-function restoreContent() {
-  const editableElements = document.querySelectorAll('[contenteditable="true"]');
-  editableElements.forEach(el => {
-      const savedContent = localStorage.getItem(el.id);
-      if (savedContent) {
-          el.innerHTML = savedContent;
-      }
-  });
-}
+// // Restore content from localStorage
+// function restoreContent() {
+//   const editableElements = document.querySelectorAll('[contenteditable="true"]');
+//   editableElements.forEach(el => {
+//       const savedContent = localStorage.getItem(el.id);
+//       if (savedContent) {
+//           el.innerHTML = savedContent;
+//       }
+//   });
+// }
 
-// Event listener for the Save button
-document.getElementById('saveBtn')?.addEventListener('click', saveContent);
+// // Event listener for the Save button
+// document.getElementById('saveBtn')?.addEventListener('click', saveContent);
 
-// Call restoreContent on page load to initialize content
-document.addEventListener('DOMContentLoaded', restoreContent);
+// // Call restoreContent on page load to initialize content
+// document.addEventListener('DOMContentLoaded', restoreContent);
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Select the theme switcher button
-  const themeSwitcher = document.getElementById('themeSwitcher') as HTMLButtonElement;
+// document.addEventListener('DOMContentLoaded', () => {
+//   // Select the theme switcher button
+//   const themeSwitcher = document.getElementById('themeSwitcher') as HTMLButtonElement;
 
-  // Check if the button exists
-  if (themeSwitcher) {
-      // Add an event listener to toggle the theme
-      themeSwitcher.addEventListener('click', () => {
-          // Toggle the 'theme-dark' class on the body
-          document.body.classList.toggle('theme-dark');
-      });
-  }
-});
+//   // Check if the button exists
+//   if (themeSwitcher) {
+//       // Add an event listener to toggle the theme
+//       themeSwitcher.addEventListener('click', () => {
+//           // Toggle the 'theme-dark' class on the body
+//           document.body.classList.toggle('theme-dark');
+//       });
+//   }
+// });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const editableElements = document.querySelectorAll('[contenteditable="true"]');
+// document.addEventListener('DOMContentLoaded', () => {
+//   const editableElements = document.querySelectorAll('[contenteditable="true"]');
 
-  editableElements.forEach(element => {
-      element.addEventListener('focusout', () => {
-          const links = element.querySelectorAll('a');
-          links.forEach(link => {
-              // Ensure the href attribute is updated with the new value after editing
-              link.setAttribute('href', link.textContent?.trim() || '');
-          });
-      });
+//   editableElements.forEach(element => {
+//       element.addEventListener('focusout', () => {
+//           const links = element.querySelectorAll('a');
+//           links.forEach(link => {
+//               // Ensure the href attribute is updated with the new value after editing
+//               link.setAttribute('href', link.textContent?.trim() || '');
+//           });
+//       });
 
-      element.addEventListener('click', (event) => {
-          const target = event.target as HTMLElement;
-          if (target.tagName === 'A') {
+//       element.addEventListener('click', (event) => {
+//           const target = event.target as HTMLElement;
+//           if (target.tagName === 'A') {
               
-              event.preventDefault();
+//               event.preventDefault();
 
-              // Get the href attribute and navigate to that URL
-              const url = target.getAttribute('href');
-              if (url) {
-                  window.open(url, '_blank');
-              }
-          }
-      });
-  });
+//               // Get the href attribute and navigate to that URL
+//               const url = target.getAttribute('href');
+//               if (url) {
+//                   window.open(url, '_blank');
+//               }
+//           }
+//       });
+//   });
 
-  // Event listener for the Download Resume button
-  document.getElementById('downloadResume')?.addEventListener('click', () => {
-      window.print(); // Open the print dialog
-  });
-});
+//   // Event listener for the Download Resume button
+//   document.getElementById('downloadResume')?.addEventListener('click', () => {
+//       window.print(); // Open the print dialog
+//   });
+// });
 
-// main.ts
-document.addEventListener('DOMContentLoaded', () => {
-  const editableElements = document.querySelectorAll('[contenteditable="true"]');
+// // main.ts
+// document.addEventListener('DOMContentLoaded', () => {
+//   const editableElements = document.querySelectorAll('[contenteditable="true"]');
 
-  // Ensuring the href of the links in the editable elements is updated
-  editableElements.forEach(element => {
-      element.addEventListener('focusout', () => {
-          const links = element.querySelectorAll('a');
-          links.forEach(link => {
-              link.setAttribute('href', link.textContent?.trim() || '');
-          });
-      });
+//   // Ensuring the href of the links in the editable elements is updated
+//   editableElements.forEach(element => {
+//       element.addEventListener('focusout', () => {
+//           const links = element.querySelectorAll('a');
+//           links.forEach(link => {
+//               link.setAttribute('href', link.textContent?.trim() || '');
+//           });
+//       });
 
-      element.addEventListener('click', (event) => {
-          const target = event.target as HTMLElement;
-          if (target.tagName === 'A') {
-              event.preventDefault();
-              const url = target.getAttribute('href');
-              if (url) {
-                  window.open(url, '_blank');
-              }
-          }
-      });
-  });
+//       element.addEventListener('click', (event) => {
+//           const target = event.target as HTMLElement;
+//           if (target.tagName === 'A') {
+//               event.preventDefault();
+//               const url = target.getAttribute('href');
+//               if (url) {
+//                   window.open(url, '_blank');
+//               }
+//           }
+//       });
+//   });
 
-  // Event listener for the Download Resume button
-  document.getElementById('downloadResume')?.addEventListener('click', () => {
-      window.print(); // Open the print dialog
-  });
+//   // Event listener for the Download Resume button
+//   document.getElementById('downloadResume')?.addEventListener('click', () => {
+//       window.print(); // Open the print dialog
+//   });
 
-  document.addEventListener('DOMContentLoaded', () => {
-    // Generate unique URL based on the name in the editable H1
-    document.getElementById('generateLink')?.addEventListener('click', () => {
-        let userName = (document.getElementById('userName') as HTMLElement).textContent?.trim();
-        if (userName) {
-            // Create a unique URL based on the user’s name
-            const resumeUrl = `${window.location.origin}/resume/${encodeURIComponent(userName)}`;
-            (document.getElementById('resumeLink') as HTMLInputElement).value = resumeUrl;
-        } else {
-            alert('Please enter your name');
-       }
-    });
-});
+//   document.addEventListener('DOMContentLoaded', () => {
+//     // Generate unique URL based on the name in the editable H1
+//     document.getElementById('generateLink')?.addEventListener('click', () => {
+//         let userName = (document.getElementById('userName') as HTMLElement).textContent?.trim();
+//         if (userName) {
+//             // Create a unique URL based on the user’s name
+//             const resumeUrl = `${window.location.origin}/resume/${encodeURIComponent(userName)}`;
+//             (document.getElementById('resumeLink') as HTMLInputElement).value = resumeUrl;
+//         } else {
+//             alert('Please enter your name');
+//        }
+//     });
+// });
 
-// Share Resume button to copy the unique link
-document.getElementById('shareResume')?.addEventListener('click', () => {
-    const resumeLink = (document.getElementById('resumeLink') as HTMLInputElement).value;
-    if (resumeLink) {
-        navigator.clipboard.writeText(resumeLink).then(() => {
-            alert('Resume link copied to clipboard');
-        }, () => {
-            alert('Failed to copy the link');
-        });
-    } else {
-        alert('Generate the link first');
-    }
-});
-});
+// // Share Resume button to copy the unique link
+// document.getElementById('shareResume')?.addEventListener('click', () => {
+//     const resumeLink = (document.getElementById('resumeLink') as HTMLInputElement).value;
+//     if (resumeLink) {
+//         navigator.clipboard.writeText(resumeLink).then(() => {
+//             alert('Resume link copied to clipboard');
+//         }, () => {
+//             alert('Failed to copy the link');
+//         });
+//     } else {
+//         alert('Generate the link first');
+//     }
+// });
+// });
 
 // Add More Skills Logic
 document.getElementById("add-skill")?.addEventListener("click", () => {
@@ -300,6 +304,8 @@ function validateFormFields(): boolean {
 };
 
 
+
+//Milestone 4 editable functionality
 // Define the ResumeData interface to represent the structure of resume data
 interface ResumeData {
   name: string;
@@ -358,6 +364,56 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
+//Add milestone 5 functionality
+// Retrieve the form values
+const userName = (document.getElementById("name") as HTMLInputElement)?.value;
+const email = (document.getElementById("email") as HTMLInputElement)?.value;
+const phone = (document.getElementById("phone") as HTMLInputElement)?.value;
+const profilePic = (document.getElementById("profile-pic") as HTMLInputElement)?.value; // Usually this is a file path
+const degree = (document.getElementById("degree") as HTMLInputElement)?.value;
+const institution = (document.getElementById("institution") as HTMLInputElement)?.value;
+const graduationDate = (document.getElementById("graduation-date") as HTMLInputElement)?.value;
+const jobTitle = (document.getElementById("job-title") as HTMLInputElement)?.value;
+const company = (document.getElementById("company") as HTMLInputElement)?.value;
+const startDate = (document.getElementById("start-date") as HTMLInputElement)?.value;
+const endDate = (document.getElementById("end-date") as HTMLInputElement)?.value;
+
+// Handling skills - concatenate all skills in a comma-separated format
+const skillsElements = document.querySelectorAll("#skills-container input[type='text']");
+const skills = Array.from(skillsElements).map(skill => (skill as HTMLInputElement).value).join(',');
+
+// Construct the URLSearchParams object
+const queryParams = new URLSearchParams({
+    name: userName,
+    email: email,
+    phone: phone,
+    profilePic: profilePic,  // Typically, file paths are not sent as query params, so handle this accordingly.
+    degree: degree,
+    institution: institution,
+    graduationDate: graduationDate,
+    jobTitle: jobTitle,
+    company: company,
+    startDate: startDate,
+    endDate: endDate,
+    skills: skills,
+});
+
+// Generate the unique URL
+const uniqueUrl = `${window.location.origin}?${queryParams.toString()}`;
+
+// Set up the click event listener for the share button
+const shareLinkButton = document.getElementById("share-btn") as HTMLButtonElement;
+if (shareLinkButton) {
+    shareLinkButton.addEventListener("click", () => {
+        window.open(uniqueUrl, "_blank");
+    });
+
+    // Update the browser history to include the query parameters in the current URL
+    window.history.replaceState(null, '', `?${queryParams.toString()}`);
+}
+
+//download pdf functionality
 function printResume(){
   window.print()
 }
@@ -365,3 +421,5 @@ function printResume(){
 document.querySelector(".download-btn")?.addEventListener("click", () => {
   printResume();
 });
+
+

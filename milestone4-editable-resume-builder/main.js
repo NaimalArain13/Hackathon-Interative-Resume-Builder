@@ -1,6 +1,6 @@
 "use strict";
 var _a, _b, _c;
-// Milestone part 3
+// Milestone part 4
 // Add More Skills Logic
 (_a = document.getElementById("add-skill")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
     var _a;
@@ -16,6 +16,28 @@ var _a, _b, _c;
     (_a = document.getElementById("skills-container")) === null || _a === void 0 ? void 0 : _a.appendChild(skillInput);
 });
 // Event Listener for "Generate Resume" button
+// Display Edit Button after Resume Generation
+const editSaveButton = document.getElementById("edit-save-btn");
+editSaveButton.style.display = "block"; // Show the button
+editSaveButton.textContent = "Edit"; // Set initial state to "Edit"
+// Edit/Save Button Event Listener
+editSaveButton.addEventListener("click", () => {
+    if (editSaveButton.textContent === "Edit") {
+        // Enable editing
+        document.querySelectorAll("[contenteditable=true]").forEach((element) => {
+            element.setAttribute("contenteditable", "true");
+        });
+        editSaveButton.textContent = "Save"; // Change button text to "Save"
+    }
+    else {
+        // Save changes
+        document.querySelectorAll("[contenteditable=true]").forEach((element) => {
+            element.setAttribute("contenteditable", "false");
+        });
+        editSaveButton.textContent = "Edit"; // Revert button text to "Edit"
+        // Optional: Call saveChanges() to update resumeData with new values
+    }
+});
 (_b = document.getElementById("resume-form")) === null || _b === void 0 ? void 0 : _b.addEventListener("submit", (e) => {
     var _a;
     e.preventDefault();

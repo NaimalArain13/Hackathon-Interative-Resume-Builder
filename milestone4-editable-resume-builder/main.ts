@@ -1,4 +1,4 @@
-// Milestone part 3
+// Milestone part 4
 // Add More Skills Logic
 document.getElementById("add-skill")?.addEventListener("click", () => {
   const firstSkillInput = document.querySelector("#skills-container input") as HTMLInputElement;
@@ -17,6 +17,29 @@ document.getElementById("add-skill")?.addEventListener("click", () => {
 });
 
 // Event Listener for "Generate Resume" button
+// Display Edit Button after Resume Generation
+const editSaveButton = document.getElementById("edit-save-btn") as HTMLButtonElement;
+editSaveButton.style.display = "block"; // Show the button
+editSaveButton.textContent = "Edit"; // Set initial state to "Edit"
+
+// Edit/Save Button Event Listener
+editSaveButton.addEventListener("click", () => {
+  if (editSaveButton.textContent === "Edit") {
+    // Enable editing
+    document.querySelectorAll("[contenteditable=true]").forEach((element) => {
+      element.setAttribute("contenteditable", "true");
+    });
+    editSaveButton.textContent = "Save"; // Change button text to "Save"
+  } else {
+    // Save changes
+    document.querySelectorAll("[contenteditable=true]").forEach((element) => {
+      element.setAttribute("contenteditable", "false");
+    });
+    editSaveButton.textContent = "Edit"; // Revert button text to "Edit"
+
+    // Optional: Call saveChanges() to update resumeData with new values
+  }
+});
 document.getElementById("resume-form")?.addEventListener("submit", (e: Event) => {
   e.preventDefault();
 

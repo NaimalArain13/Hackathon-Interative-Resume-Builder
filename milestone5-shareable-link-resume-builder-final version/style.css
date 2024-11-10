@@ -19,6 +19,7 @@ header.head {
 form {
   background-color: white;
   padding: 25px;
+  margin: 40px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
@@ -38,9 +39,10 @@ input[type="date"],
 input[type="file"] {
   width: 100%;
   padding: 10px;
+  margin: auto;
   margin-bottom: 15px;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 input[type="file"] {
@@ -78,6 +80,8 @@ button.btn2:hover {
 #display-resume {
   background-color: white;
   padding: 25px;
+  padding: 25px;
+  margin: 40px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
@@ -203,6 +207,9 @@ footer.foot {
     background-color: white; /* Ensure white background for print */
     margin: 0;
     padding: 0;
+  }
+  header.head{
+    display: none;
   }
 
   form, #display-resume {
